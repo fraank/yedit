@@ -1,0 +1,50 @@
+.row
+  .col-md-3
+    .box.box-solid
+      
+      .box-header
+        %h3#file-name.box-title
+          = t "projects.config.files.header"
+      
+      .box-body
+        %ul.nav.nav-pills.nav-stacked
+          - @configs.each do |config|
+            %li
+              %a.config_links{ href: "#", 'data-ref': File.basename(config) }
+                = File.basename(config)
+  
+  .col-md-9
+    .box.box-solid
+      .box-header.pull-left
+        %h3#file-name.box-title
+          = t "projects.config.editor.header"
+      .box-body.no-padding
+        .nav-tabs-custom
+          %ul.nav.nav-tabs.pull-right
+            %li
+              %a{ href: '#config_tab', 'data-toggle': 'tab' }
+                = t "projects.config.editor.config.header"
+            %li.active
+              %a{ href: '#content_tab', 'data-toggle': 'tab' }
+                = t "projects.config.editor.editor.header"
+
+          .tab-content.no-padding
+            #content_tab.tab-pane.active
+              #config_editor.json-editor
+      
+            #config_tab.tab-pane
+
+      .box-footer
+        %a#editor_save.btn.btn-success.pull-right{ href: "#" }
+          = t "projects.config.editor.button_save"
+
+        %a#editor_toggle.btn.btn-default.pull-right
+          = t "projects.config.editor.button_expand"
+
+
+%link{:href => "/js/jsoneditor/jsoneditor.css", :rel => "stylesheet", :type => "text/css"}
+%script{:src => "/js/jsoneditor/jquery.jsoneditor.js"}
+%script{ :src => "/js/projects_config_editor.js" }
+
+:javascript
+  config_editor.init('#config_editor', '#{ named_route('projects_config') }');

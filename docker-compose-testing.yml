@@ -1,0 +1,22 @@
+version: '2'
+services:
+  
+  editor:
+    build: "."
+    image: editor
+    working_dir: /srv/www/editor
+    expose:
+      - "4000"
+      - "4001"
+    volumes:
+      - .:/srv/www/editor
+    working_dir: /srv/www/editor
+
+    ports:
+      - "4000:4000"
+      - "4001:4001"
+
+    command: 'echo "running test environment."'
+    
+    environment:
+      RACK_ENV: test

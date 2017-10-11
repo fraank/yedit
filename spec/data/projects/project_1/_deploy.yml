@@ -1,0 +1,8 @@
+development:
+  aws:
+    s3_bucket: testing-def
+    remote_path: /                           # relative path on bucket where files should be copied.
+    region: eu-central-1                     # Region where your bucket is located.
+    verbose: false                           # Print out all file operations.
+    incremental: true                        # Only upload new/changed files
+    delete: true                             # Remove files from destination which do not match source files.

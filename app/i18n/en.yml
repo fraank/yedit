@@ -1,0 +1,128 @@
+en:
+  
+  header:
+    navigation:
+      toggle: 'Toggle navigation'
+      projects:
+        all: 'All Projects'
+  
+  sidebar:
+    nav:
+      navigation: 'Main Navigation'
+      configuration: 'Configuration'
+      dashboard: 'Dashboard'
+      home: 'Project Home'
+      editor: 'Visual-Editor'
+      projects: 'Projects'
+      live: 'Actions'
+      posts: 'Posts'
+      files: 'Files'
+
+  footer:
+    copyright: '<strong>Copyright &copy; 2017 <a href="http://www.yedit.org">yedit</a></strong>.'
+    version: 'Version'
+  
+  home:
+    index:
+      header: 'Dashboard'
+      subheader: '"For your awesome projects"'
+      welcome:
+        header: 'Welcome'
+        text: 'Welcome to yedit'
+      projects:
+        header: 'Your Projects'
+      themes:
+        header: 'Available Themes'
+      plugins: 
+        header: 'Available Plugins'
+      project_new_blank:
+        header: 'Create empty Project'
+        button: 'Create Project from Scratch'
+      project_new_theme:
+        header: 'Create Project from Theme'
+        button: 'Create Project based on Theme'
+  
+  posts:
+    index:
+      tree:
+        header: 'Posts'
+        button: 'Create Post'
+      editor:
+        header: 'Edit Post'
+        button_delete: 'Delete'
+        button_save: 'Save Post'
+        content:
+          header: 'Content'
+        config:
+          header: 'Config'
+      new:
+        header: 'Create Post'
+        name: 'Post Title'
+        button_create: 'Create Post'
+        button_cancel: 'Cancel'
+  
+  files:
+    index:
+      tree:
+        header: 'Files'
+        button: 'Create File'
+      editor:
+        header: 'Edit File'
+        button_delete: 'Delete'
+        button_save: 'Save File'
+
+  editor:
+    index:
+      title: 'Visual-Editor'
+      header: 'Visual-Editor'
+
+  projects:
+    index:
+      title: 'Projects'
+      header: 'Your Projects'
+      project:
+        button: 'Open Project'
+    
+    live:
+      preview:
+        header: 'Live-Preview'
+        text: 'Activate the project to show in preview.'
+      build:
+        header: 'Build'
+        text: 'Check for errors and build your project.'
+      deploy:
+        header: 'Deploy'
+        text: 'Deploy the project'
+      version:
+        header: 'Commit Status'
+        text: 'No changes to commit.'
+      download:
+        header: 'Download'
+        text: 'Download a zip of the raw or rendered project.'
+      worker:
+        header: 'Worker Status'
+        status:
+          processed: 'Processed'
+          pending: 'Pending'
+          working: 'Working'
+          failed: 'Failed'
+      logs:
+        header: 'Logs'
+        button_view: 'View Log'
+        button_delete: 'Delete Log'
+
+    config:
+      header: 'Project-Configuration'
+      title: 'Config'
+      files:
+        header: 'Config-Files'
+      editor:
+        header: 'Config-File'
+        editor:
+          header: 'Editor'
+        config:
+          header: 'Config'
+        
+        button_expand: 'Expand all'
+        button_save: 'Save Config'
+

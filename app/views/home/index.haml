@@ -1,0 +1,80 @@
+.row      
+  
+  .col-sm-4
+    .box.box-success
+      .box-header
+        %i.fa.fa-envelope
+        %h3.box-title
+          = t "home.index.project_new_blank.header"
+      %form{ :action => named_route(:projects_create), :method => 'POST'}
+        .box-body
+          .form-group
+            %input#create_project_name.form-control{ :name => "project_id", :placeholder => "Project-Name", :type => "text"}
+          
+          %button.btn.btn-success.col-sm-12{ :type => 'submit' }
+            = t "home.index.project_new_blank.button"
+            
+    .box
+      .box-header
+        %h3.box-title
+          = t "home.index.projects.header"
+      .box-footer.no-padding
+        %ul.nav.nav-pills.nav-stacked
+          - @projects.each do |project|
+            %li
+              %a{:href => named_route(:projects_show, :project_id => project.id)}
+                = project.id
+                - if @current_project == project.id
+                  %span.pull-right{ :class => "text-green" }
+                    %i.fa.fa-eye
+
+
+  .col-sm-4
+    .box.box-success
+      .box-header
+        %i.fa.fa-envelope
+        %h3.box-title
+          = t "home.index.project_new_theme.header"
+      %form{ :action => named_route(:projects_create), :method => 'POST'}
+        .box-body
+          .form-group
+            %input#create_project_name.form-control{ :name => "project_id", :placeholder => "Project-Name", :type => "text"}
+          .form-group
+            %select#create_project_theme.form-control{ :name => "theme_name", :type => "text"}
+              - @themes.each do |theme|
+                %option{ :value => theme[:name] }
+                  = theme[:name]
+          
+          %button.btn.btn-success.col-sm-12{ :type => 'submit' }
+            = t "home.index.project_new_theme.button"
+
+    .box
+      .box-header
+        %h3.box-title
+          = t "home.index.themes.header"
+      .box-footer.no-padding
+        %ul.nav.nav-pills.nav-stacked
+          - @themes.each do |theme|
+            %li
+              %a
+                = theme[:name]
+
+    .box
+      .box-header
+        %h3.box-title
+          = t "home.index.plugins.header"
+      .box-footer.no-padding
+        %ul.nav.nav-pills.nav-stacked
+          - @plugins.each do |plugin|
+            %li
+              %a
+                = plugin[:name]
+
+
+  .col-sm-4
+    .box.box-info
+      .box-header
+        %h3.box-title
+          = t "home.index.welcome.header"
+      .box-body
+        = t "home.index.welcome.text"

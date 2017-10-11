@@ -1,0 +1,24 @@
+# config section for the editor
+projects_path: "./usr/projects"
+build_path: "./usr/www"
+plugins_path: "./usr/plugins"
+themes_path: "./usr/themes"
+log_path: "./usr/tmp/logs"
+
+session_key: "suarcnuarzewe"
+session_secret: "werlrcnwtuerte"
+
+redis:
+  host: redis
+  port: 6379
+
+editor:
+  protocol: "http"
+  domain: "localhost"
+  port: 4000
+
+# config section for the project preview
+preview:
+  protocol: "http"
+  domain: "localhost"
+  port: 4001

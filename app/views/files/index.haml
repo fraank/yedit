@@ -1,0 +1,50 @@
+= haml :'files/_folder_new'
+= haml :'files/_file_new'
+= haml :'files/_rename'
+
+.row      
+  .col-md-3
+    .box.box-solid.without-border
+      .box-header.with-border
+        .box-tools
+          %button.btn.btn-box-tool{ 'data-widget' => 'collapse' }
+            %i.fa.fa-minus
+        %h3#file-name.box-title
+          = t "files.index.tree.header"
+      .box-body
+        .row
+          .col-sm-12
+            %button#post-add-button.btn.btn-success.col-sm-12
+              = t "files.index.tree.button"
+        %br
+        %ul#files_tree.tree.box-wrapper
+
+  .col-md-9
+    .box
+      .box-header.with-border
+        %h3#file-name.box-title
+          = t "files.index.editor.header"
+      .box-body.no-padding
+        #files_editor.box-wrapper
+
+      .box-footer
+        %a#file-save-button.btn.btn-danger
+          = t "files.index.editor.button_delete"
+        %a#file-save-button.btn.btn-success.pull-right
+          = t "files.index.editor.button_save"
+
+
+%link{ rel: "stylesheet", href: "/js/contextmenu/jquery.contextMenu.css"}
+%script{ :src => "/js/contextmenu/jquery.contextMenu.js" }
+
+%link{ rel: "stylesheet", href: "/js/codemirror/codemirror.css"}
+%script{ :src => "/js/codemirror/codemirror.js" }
+
+%script{ :src => "/js/files_tree.js" }
+%script{ :src => "/js/folders_editor.js" }
+%script{ :src => "/js/files_editor.js" }
+
+:javascript
+  files_tree.init('#files_tree', 'files_tree.#{ @project.id }', '#{ named_route('files_tree') }');
+  folders_editor.init();
+  files_editor.init('#files_editor', '#{ named_route('files_index') }', '#{ @project.id }');

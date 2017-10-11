@@ -1,0 +1,66 @@
+.row
+  .col-md-9.col-xs-12
+    .box
+      
+      .box-header
+        %i.fa.fa-pencil
+        %h3.box-title
+          Recent Posts
+      
+      .box-body.table-responsive.no-padding
+        %table.table.table-hover
+          - @posts.each do |post|
+            %tr
+              %td
+                = post[:name]
+
+    .box
+
+      .box-header
+        %i.fa.fa-folder
+        %h3.box-title
+          Recent Files
+      
+      .box-body.table-responsive.no-padding
+        %table.table.table-hover
+          - @files.each do |file|
+            %tr
+              %td
+                = file[:name]   
+              %td
+                %label
+                  %a
+                    Edit
+        
+  .col-md-3.col-xs-12
+    .box.box-solid
+      
+      .box-header.with-border
+        %h3.box-title Create
+        .box-tools
+          %button.btn.btn-box-tool{"data-widget" => "collapse", :type => "button"}
+            %i.fa.fa-minus
+      
+      .box-body.no-padding
+        %ul.nav.nav-pills.nav-stacked
+          %li
+            %a{:href => named_route(:posts_index, { params: '#new' })}
+              %i.fa.fa-sticky-note.text-green
+              Post
+          %li
+            %a{:href => named_route(:files_index, { params: '#new' })}
+              %i.fa.fa-file-text.text-green
+              File
+
+
+    .box.box-solid
+      
+      .box-body.no-padding
+        %ul.nav.nav-pills.nav-stacked
+          %li
+            %a
+              Last build: yyyy.dd.tt
+          
+          %li
+            %a
+              Last deployment: yyyy.dd.tt

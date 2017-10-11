@@ -1,0 +1,148 @@
+.row
+  .col-md-4
+    .box
+      .box-header
+        %h3.box-title
+          = t "projects.live.preview.header"
+      .box-body
+        %p
+          = t "projects.live.preview.text"
+
+        - if @project.root_valid?
+          - if @current_project == @project.id && @current_project_environment == 'development'
+            %a.btn.btn-success.col-sm-12{ :href => named_route(:projects_activate) }
+              development
+          - else
+            %a.btn.btn-default.col-sm-12{ :href => named_route(:projects_activate) }
+              development
+
+          - if @current_project == @project.id && @current_project_environment == 'production'
+            %a.btn.btn-success.col-sm-12{ :href => named_route(:projects_activate)+'?env=production' }
+              production
+          - else
+            %a.btn.btn-default.col-sm-12{ :href => named_route(:projects_activate)+'?env=production' }
+              production
+
+  .col-md-4
+    .box
+      .box-header
+        %h3.box-title
+          = t "projects.live.build.header"
+      .box-body
+        %p
+          = t "projects.live.build.text"
+
+        - if @project.root_valid?
+          %a.btn.btn-default.col-sm-12{ :href => named_route(:projects_build) }
+            development
+          
+          %a.btn.btn-default.col-sm-12{ :href => named_route(:projects_build)+'?env=production' }
+            production
+
+  .col-md-4
+    .box.box-danger
+      .box-header
+        %h3.box-title
+          = t "projects.live.deploy.header"
+      .box-body
+        %p
+          = t "projects.live.deploy.text"
+
+        - if @project.root_valid?
+          - @deploy_environments.each do |environment|
+            %a.btn.btn-default.col-sm-12{ :href => named_route(:projects_deploy)+"?env=#{environment}" }
+              = environment
+
+.row
+  .col-md-4
+    .box
+      .box-header
+        %h3.box-title
+          = t "projects.live.version.header"
+      .box-body
+        = t "projects.live.version.text"
+
+  .col-md-4
+    .box
+      .box-header
+        %h3.box-title
+          = t "projects.live.download.header"
+      .box-body
+        %p
+          = t "projects.live.download.text"
+        
+        / %a.btn.btn-default.col-sm-12{ :href => "" }
+        /   Project Source
+
+        / - @deploy_environments.each do |environment|
+        /   %a.btn.btn-info.col-sm-12{ :href => "" }
+        /     ="Current #{environment} Build"
+
+  .col-sm-4
+
+    .box
+      .box-header
+        %h3.box-title
+          = t "projects.live.worker.header"
+      .box-footer.no-padding
+        %ul.nav.nav-pills.nav-stacked
+          %li
+            %a{:href => "#"}
+              = t "projects.live.worker.status.processed"
+              %span.pull-right.text-green
+                = @worker_status[:processed]
+          %li
+            %a{:href => "#"}
+              = t "projects.live.worker.status.pending"
+              %span.pull-right.text-yellow
+                = @worker_status[:pending]
+          %li
+            %a{:href => "#"}
+              = t "projects.live.worker.status.working"
+              %span.pull-right.text-orange
+                = @worker_status[:working]
+                %strong
+                  = "/"
+                = @worker_status[:workers]
+                
+          %li
+            %a{:href => "#"}
+              = t "projects.live.worker.status.failed"
+              %span.pull-right.text-red
+                = @worker_status[:failed]
+
+
+.row
+  .col-md-12
+    .box.box-warning.direct-chat.direct-chat-warning
+      .box-header.with-border
+        %h3.box-title
+          = t "projects.live.logs.header"
+        .box-tools.pull-right
+          %span.badge.bg-yellow{"data-toggle" => "tooltip", :title => "#{@logs.size} last logs"}
+            = @logs.size
+          %button.btn.btn-box-tool{"data-widget" => "remove", :type => "button"}
+            %i.fa.fa-refresh
+
+      .box-body
+        .direct-chat-messages
+          - @logs.each do |log|
+            .direct-chat-msg{ :class => 'left' }
+              .direct-chat-info.clearfix
+                %span.direct-chat-name.pull-right
+                  = log[:header]
+                  .label{ :class => log[:label] }
+                    = log[:label_text]
+                %span.direct-chat-timestamp.pull-left
+                  = log[:time]
+              .direct-chat-text
+                != log[:text]
+
+      .box-footer
+        %form{:action => "#", :method => "post"}
+          .input-group
+            %span.input-group-btn
+              %button.btn.btn-success.btn-flat{:type => "button"}
+                = t "projects.live.logs.button_view"
+              %button.btn.btn-danger.btn-flat{:type => "button"}
+                = t "projects.live.logs.button_delete"

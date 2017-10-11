@@ -1,0 +1,6 @@
+.bundle
+.ink-cache
+.sass-cache
+.DS_Store
+.yardoc
+doc

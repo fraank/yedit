@@ -1,0 +1,12 @@
+- @projects.each do |project|
+  .project_box.col-lg-4.col-xs-6
+    .small-box{ :class => "bg-green" }
+      .inner
+        %h3
+          = project.id
+        %p
+      .icon
+        %i.fa.fa-cube
+      
+      %a.small-box-footer{:href => named_route(:projects_show, project_id: project.id)}
+        = t 'projects.index.project.button'

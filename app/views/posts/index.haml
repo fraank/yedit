@@ -1,0 +1,66 @@
+= haml :'posts/_post_new'
+
+.row
+  .col-md-3
+
+    .box.box-solid
+      .box-header.with-border
+        .box-tools
+          %button.btn.btn-box-tool{ 'data-widget' => 'collapse' }
+            %i.fa.fa-minus
+        %h3#post-name.box-title
+          = t "posts.index.tree.header"
+      
+      .box-body
+        .row
+          .col-sm-12
+            %button#post-add-button.btn.btn-success.col-sm-12
+              = t "posts.index.tree.button"
+        %br
+        %ul#posts_tree.tree
+
+  .col-md-9
+    .box.box-solid
+      .box-header.pull-left
+        %h3#file-name.box-title
+          = t "posts.index.editor.header"
+      .box-body.no-padding
+        .nav-tabs-custom
+          %ul.nav.nav-tabs.pull-right
+            %li
+              %a{ href: '#config_tab', 'data-toggle': 'tab' }
+                = t "posts.index.editor.config.header"
+            %li.active
+              %a{ href: '#editor_tab', 'data-toggle': 'tab' }
+                = t "posts.index.editor.content.header"
+
+          .tab-content.no-padding
+            #editor_tab.tab-pane.active
+              %textarea#posts_editor
+
+            #config_tab.tab-pane
+              #posts_config_editor.json-editor
+      
+
+      .box-footer
+        %a#save-button.btn.btn-danger
+          = t "posts.index.editor.button_delete"
+
+        %a#save-button.btn.btn-success.pull-right
+          = t "posts.index.editor.button_save"
+
+%link{ rel: "stylesheet", href: "/js/contextmenu/jquery.contextMenu.css"}
+%script{ :src => "/js/contextmenu/jquery.contextMenu.js" }
+
+%link{:href => "/js/jsoneditor/jsoneditor.css", :rel => "stylesheet", :type => "text/css"}/
+%script{:src => "/js/jsoneditor/jquery.jsoneditor.js"}
+
+%link{ rel: "stylesheet", href: "/js/simplemde/simplemde.min.css"}
+%script{ src: "/js/simplemde/simplemde.min.js" }
+
+%script{ :src => "/js/posts_tree.js" }
+%script{ :src => "/js/posts_editor.js" }
+
+:javascript
+  posts_tree.init('#posts_tree', 'postsposts_tree.#{ @project.id }', '#{ named_route('posts_tree') }');
+  posts_editor.init('#posts_editor', '#posts_config_editor', '#{ named_route('posts_index') }');

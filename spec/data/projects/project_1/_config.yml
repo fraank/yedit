@@ -1,0 +1,5 @@
+# Site settings
+title: "Title"
+description: > # this means to ignore newlines until "baseurl:"
+  Description
+baseurl: "/"

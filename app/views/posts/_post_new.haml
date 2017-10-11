@@ -1,0 +1,18 @@
+#post_new_modal.modal.fade{"aria-labelledby" => "post_new_modal_label", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4#post_new_modal_label.modal-title
+          = t "posts.index.new.header"
+      .modal-body
+        .form-group
+          %label.control-label{ :for => "create_file_name" }
+            = t "posts.index.new.name"
+          %textarea.input_field.form-control{ :type => "text", :name => "name",  :placeholder =>"Name" }
+      .modal-footer
+        %button#post-create-cancel-button.btn.btn-default{"data-dismiss" => "modal", :type => "button"}
+          = t "posts.index.new.button_cancel"
+        %button#post-create-create-button.btn.btn-success.pull-right{:type => "button"}
+          = t "posts.index.new.button_create" 

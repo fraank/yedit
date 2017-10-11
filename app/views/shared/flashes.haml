@@ -1,0 +1,16 @@
+#flashes
+  - flashes.each do |flash|
+    .alert.alert-dismissible{ :class => "alert-#{flash[:type]}" }
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} ×
+      - if flash[:title]
+        %h4
+          %i.icon.fa.fa-check
+          = flash[:title]
+      
+      - if flash[:title]
+        = flash[:text]
+      - else
+        %strong
+          = flash[:text]
+
+  #direct-flashes

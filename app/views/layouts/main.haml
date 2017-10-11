@@ -1,0 +1,46 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}
+      %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
+        %title sss.io | edit
+
+        = haml :'shared/head'
+  
+  %body.sidebar-mini.sidebar-collapse.skin-red-light
+    .wrapper
+      
+      = haml :'shared/header'
+
+      %aside.main-sidebar
+        %section.sidebar
+          = haml :'shared/nav'
+    
+      .content-wrapper
+        = haml :'shared/flashes'
+        
+        - if @header && @header != ""
+          %section.content-header
+            %h1
+              = @header
+              - if @subheader && !@subheader.empty?
+                %small
+                  = @subheader
+
+            %ol.breadcrumb
+              %li
+                %a{:href => named_route(:root)}
+                  Dashboard
+              - if @bc
+                - @bc.each do |link|
+                  %li
+                    %a{ :href => link[:link] }
+                      = link[:name]
+              
+        .section.content
+          = yield
+
+
+
+      = haml :'shared/footer'
+    = haml :'shared/foot'

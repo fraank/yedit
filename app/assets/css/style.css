@@ -1,0 +1,122 @@
+.skin-red-light .main-header .navbar {
+  background-color: transparent;
+}
+.skin-red-light .main-header>.logo{
+  background-color: #444;
+  border-color: #444;
+}
+.skin-red-light .main-header .logo:hover {
+  background-color: #444;
+}
+.skin-red-light .main-header .logo:hover img {
+  opacity: 0.8;
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+}
+.skin-red-light .main-header>.logo img {
+  max-height: 20px;
+}
+
+/* set color of current module */
+.skin-red-light .sidebar-menu>li.active>a {
+  color: #ff0844;
+}
+
+/* Kill borders */
+.box, .btn {
+  border-radius: 0 !important;
+  box-shadow: none;
+}
+
+.box .nav-tabs-custom {
+  box-shadow: none;
+  border-radius: 0px solid #000;
+}
+
+nav.navbar.navbar-inverse {
+  background-color: #444 !important;
+  background: none;
+}
+
+footer.main-footer {
+  border: 0px solid #fff;
+  background-color: #f9fafc;
+}
+
+.skin-red-light .main-sidebar {
+  border-right: 0px solid #000;
+}
+
+#flashes {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  z-index: 1031;
+  width: 20%;
+}
+
+#flashes .alert {
+  margin-bottom: 5px;
+}
+
+/* +++++++++++++++++++++++++++++++++++ */
+/* +++++++++++ .tree  ++++++++++++ */
+/* +++++++++++++++++++++++++++++++++++ */
+.tree {
+  padding: 0;
+  margin: 0;
+}
+
+.tree i {
+  width: 20px;
+}
+
+.tree ul, .tree li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.tree li ul {
+  padding-left: 10px;
+}
+
+/* bugfix for https://github.com/swisnl/jQuery-contextMenu/issues/433 */
+.context-menu-icon { font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif; }
+.context-menu-icon.context-menu-icon--fa span { font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif; }
+
+/* +++++++++++++++++++++++++++++++++++ */
+/* ++++++++++  MARKDOWN-EDITOR  ++++++++++ */
+/* +++++++++++++++++++++++++++++++++++ */
+
+#editor_tab .editor-toolbar {
+  border: 0px solid #000;
+}
+
+#editor_tab .CodeMirror {
+  border-right: 0px solid #000;
+  border-left: 0px solid #000;
+  border-radius: 0;
+}
+
+/* fix for markdown editor fullscreen */
+.CodeMirror-fullscreen, .editor-toolbar.fullscreen {
+  z-index: 9999 !important;
+}
+
+/* +++++++++++++++++++++++++++++++++++ */
+/* ++++++++++  YAML-EDITOR  ++++++++++ */
+/* +++++++++++++++++++++++++++++++++++ */
+.json-editor {
+  margin: 20px !important;
+}
+
+div.jsoneditor.jsoneditor-mode-tree {
+  background-color: #fff;
+  border: 0px solid #fff !important;
+}
+
+div.jsoneditor > .jsoneditor-menu {
+   background-color: #222d32;
+   border-bottom: #222d32;
+}

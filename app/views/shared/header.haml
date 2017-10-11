@@ -1,0 +1,49 @@
+%header.main-header
+  %a.logo{ :href => named_route(:root) }
+    %img{ :src => "/img/yedit.svg" }
+
+
+  %nav.navbar.navbar-inverse.navbar-static-top{:role => "navigation"}
+
+    %a.visible-xs.sidebar-toggle{"data-toggle" => "offcanvas", :href => "#", :role => "button"}
+      %span.sr-only
+        = t 'header.navigation.toggle'
+    
+    %ul.nav.navbar-nav.hidden-xs
+      %li.dropdown.notifications-menu
+        %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
+          - if @project
+            = @project.id
+          - else
+            Choose Project
+          %i.fa.fa-angle-down
+
+        %ul.dropdown-menu
+          %li
+            %ul.menu
+              - @projects.each do |project|
+                %li
+                  %a{ :href => named_route(:projects_show, :project_id => project.id) }
+                    = project.id
+                    - if @current_project == project.id
+                      %span{ :class => "text-#{@current_project_environment_class} pull-right" }
+                        %i.fa.fa-eye
+
+          %li.footer
+            %a{ :href => named_route(:projects_index) }
+              = t 'header.navigation.projects.all'
+
+    .navbar-custom-menu
+      - if @project
+
+        %ul.nav.navbar-nav
+
+          %li.dropdown.messages-menu
+            - if @current_project == @project.id
+              %a{ :href => "#{@preview_url}", :target => "_blank" }
+                %i.fa.fa-eye
+                %span{ :class => "label text-#{@current_project_environment_class}"}
+                  = @current_project_environment[0].upcase
+            - else
+              %a{ :href => "#{named_route(:projects_live)}" }
+                %i.fa.fa-eye

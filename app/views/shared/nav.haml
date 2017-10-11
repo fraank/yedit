@@ -1,0 +1,55 @@
+%ul.sidebar-menu
+  - unless @project
+    %li.header
+      = (t 'sidebar.nav.navigation').upcase
+    %li
+      %a{:href => "/"}
+        %i.fa.fa-dashboard
+        %span
+          = t 'sidebar.nav.dashboard'
+    %li
+      %a{ :href => named_route(:projects_index) }
+        %i.fa.fa-cubes
+
+        %span
+          = t 'sidebar.nav.projects'
+  
+  - else
+    %li{ :class => (( @module == "home" )? 'active':'') }
+      %a{:href => named_route(:projects_show)}
+        %i.fa.fa-home
+        %span
+          = t 'sidebar.nav.home'
+    %li{ :class => (( @module == "editor" )? 'active':'') }
+      %a{:href => named_route(:editor_index)}
+        %i.fa.fa-magic
+        %span
+          = t 'sidebar.nav.editor'
+
+    %li{ :class => (( @module == "posts" )? 'active':'') }
+      %a{:href => named_route(:posts_index)}
+        %i.fa.fa-pencil
+        %span{ :onclick => "javascript: window.location='#{ named_route(:posts_index, :'*' => "/") }';"}
+          = t 'sidebar.nav.posts'
+        %i.fa.fa-angle-left.pull-right
+
+
+    %li{ :class => (( @module == "files" )? 'active':'') }
+      %a{:href => named_route(:files_index)}
+        %i.fa.fa-folder
+        %span{ :onclick => "javascript: window.location='#{ named_route(:files_index, :'*' => "/") }';"}
+          = t 'sidebar.nav.files'
+        %i.fa.fa-angle-left.pull-right
+
+
+    %li{ :class => (( @module == "config" )? 'active':'') }
+      %a{:href => named_route(:projects_config)}
+        %i.fa.fa-wrench
+        %span
+          = t 'sidebar.nav.configuration'
+
+    %li{ :class => (( @module == "live" )? 'active':'') }
+      %a{ :href => named_route(:projects_live) }
+        %i.fa.fa-flash
+        %span
+          = t 'sidebar.nav.live'

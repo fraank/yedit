@@ -1,0 +1,5 @@
+development:
+  aws:
+    access_key_id: 
+    secret_access_key: 
+    cloudfront_distribution_id: 

@@ -1,0 +1,18 @@
+#rename_modal.modal.fade{"aria-labelledby" => "rename_modal_label", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4#rename_modal_label.modal-title
+          Rename
+      .modal-body
+        .form-group
+          %label.control-label{ :for => "create_file_name" }
+            New Name
+          %input.input_field.form-control{ :type => "text", :name => "name",  :placeholder =>"Name" }
+      .modal-footer
+        %button#file_create_cancel.btn.btn-default{"data-dismiss" => "modal", :type => "button"}
+          Cancel
+        %button#file_create_submit.btn.btn-success.pull-right{:type => "button"}
+          Create

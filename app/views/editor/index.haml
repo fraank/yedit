@@ -1,0 +1,23 @@
+.row      
+  .col-md-3
+    .box
+      .box-body
+        %ul#editor_tree.tree.box-wrapper
+
+  .col-md-9
+    .box
+      .box-header
+
+      .box-body.no-padding
+
+        #editor.box-wrapper
+          %iframe{ :src => "#{@preview_url}", :width => "100%", :border => "0", :height => "500" }
+
+%link{ rel: "stylesheet", href: "/js/contextmenu/jquery.contextMenu.css"}
+%script{ :src => "/js/contextmenu/jquery.contextMenu.js" }
+
+%script{ :src => "/js/files_tree.js" }
+%script{ :src => "/js/folders_editor.js" }
+
+:javascript
+  files_tree.init('#editor_tree', 'editor_tree.#{ @project.id }', '#{ named_route('editor_tree') }');

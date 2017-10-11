@@ -1,0 +1,5 @@
+development:
+  aws:
+    s3_bucket: testing-de
+    cloudfront_distribution_id: de
+    remote_path: /
