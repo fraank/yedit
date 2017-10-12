@@ -1,9 +1,18 @@
-# yedit
+# yedit - the web editor
 
-The website editor for handling multiple static websites managed by jekyll.
+the web editor for handling multiple static website projects controlled by jekyll.
 
 
-## Principles for builing this package:
+## Key Features
+
+- multi-project - manage multiple websites, switch projects to develop and preview in ui
+- direct deploy - deploy to your cdn, over ftp / ssh
+- file driven - no database needed
+- 'take a away' - all data can be exported at any time
+- every feature available through web-interface
+
+
+## Principles for building this package:
 
 Keeping the things as easy as possible:
 
@@ -12,6 +21,7 @@ Keeping the things as easy as possible:
  - maximum performance
  - easy to use ui
  - fasten up development and deployment
+
 
 Due to this reasons we didn't use any big js frameworks, rails, or outstanding css-frameworks.
 
